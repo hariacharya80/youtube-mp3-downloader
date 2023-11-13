@@ -4,6 +4,7 @@ import Header from "./components/Header";
 import { BiSolidDownload } from "react-icons/bi";
 import { BsFillMoonStarsFill, BsFillSunFill } from "react-icons/bs";
 import { AiOutlineGithub } from "react-icons/ai";
+import toast from "react-hot-toast";
 
 function App() {
   const [darkMode, setDarkMode] = useState(false);
@@ -16,6 +17,15 @@ function App() {
       document.documentElement.classList.remove("dark");
     }
   }, [darkMode]);
+  const [validation, setValidation] = useState("");
+  const [videoLink, setVideoLink] = useState("");
+  const checkValidation = () => {
+    if (!videoLink) {
+      toast.error("Video link is required.");
+      setValidation("Video link is required to download the audio.");
+      return false;
+    }
+  };
   return (
     <section className="h-screen w-screen bg-slate-200 dark:bg-slate-800 dark:text-white flex justify-center">
       <div className="flex flex-col w-full md:w-1/2 xl:w-2/3 p-10 dark:bg-slate-900 bg-white items-center">
@@ -52,17 +62,33 @@ function App() {
         <input
           type="text"
           disabled={loading}
+          value={videoLink}
+          onChange={(e) => {
+            setValidation("");
+            setVideoLink(e.target.value);
+          }}
           className={
-            loading
-              ? "p-1 cursor-not-allowed border-2 w-2/3 rounded outline-none text-black dark:bg-slate-600 dark:outline-slate-800 dark:text-white dark:border-slate-800 my-2"
+            validation
+              ? "p-1 border-rose-500 outline-rose-500 border-2 w-2/3 rounded outline-none text-black dark:bg-slate-600 dark:outline-slate-800 dark:text-white dark:border-slate-800 my-2"
               : "p-1 border-2 w-2/3 rounded outline-none text-black dark:bg-slate-600 dark:outline-slate-800 dark:text-white dark:border-slate-800 my-2"
           }
           name="url"
           id="url"
           placeholder="https://www.youtube.com/watch?v=asdfasdf"
         />
+        {validation != "" && (
+          <div className="w-2/3 flex justify-start -mt-2">
+            <span className="text-rose-500">{validation}</span>
+          </div>
+        )}
         <button
-          onClick={() => setLoading(true)}
+          onClick={() => {
+            const isValid = checkValidation();
+            if (isValid) {
+              setLoading(true);
+            }
+            return;
+          }}
           className={
             loading
               ? "mt-5 flex cursor-progress justify-center items-center gap-2 bg-indigo-600 hover:bg-indigo-800 transition-colors text-white dark:bg-slate-600 py-2 rounded w-1/2"
