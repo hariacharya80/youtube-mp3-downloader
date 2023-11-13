@@ -3,6 +3,7 @@ import Footer from "./components/footer";
 import Header from "./components/Header";
 import { BiSolidDownload } from "react-icons/bi";
 import { BsFillMoonStarsFill, BsFillSunFill } from "react-icons/bs";
+import { AiOutlineGithub } from "react-icons/ai";
 
 function App() {
   const [darkMode, setDarkMode] = useState(false);
@@ -18,7 +19,18 @@ function App() {
   return (
     <section className="h-screen w-screen bg-slate-200 dark:bg-slate-800 dark:text-white flex justify-center">
       <div className="flex flex-col w-full md:w-1/2 xl:w-2/3 p-10 dark:bg-slate-900 bg-white items-center">
-        <div className="w-full flex justify-end gap-2">
+        <div className="w-full flex justify-between gap-2 ">
+          <div
+            onClick={() =>
+              window.open(
+                "https://www.github.com/hariacharya80/youtube-mp3-downloader"
+              )
+            }
+            className="flex rounded hover:bg-slate-800 dark:bg-slate-700 dark:border-black dark:hover:bg-slate-800 hover:text-white cursor-pointer transition-colors py-1 gap-2 items-center bg-slate-300 px-8 "
+          >
+            <AiOutlineGithub />
+            <span>View on GitHub</span>
+          </div>
           <button onClick={() => setDarkMode((prev) => !prev)}>
             {darkMode ? (
               <div className="flex justify-center items-center gap-2 border-2 p-2 rounded bg-slate-200 dark:bg-slate-800 dark:border-black hover:dark:bg-slate-600 transition-colors">
