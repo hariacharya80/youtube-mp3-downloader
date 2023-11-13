@@ -107,6 +107,8 @@ function App() {
                       setShowCard(true);
                       setFileInfo(result);
                       setShowCard(true);
+                    } else {
+                      toast.error("An unknown error processing the video.");
                     }
                     setLoading(false);
                   }
