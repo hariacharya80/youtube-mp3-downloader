@@ -1,27 +1,21 @@
-# React + TypeScript + Vite
+# YouTube MP3 Downloader
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Complete React.js Single component website to download music file (mp3) from any youtube video.
 
-Currently, two official plugins are available:
+<strong>Live Demo: <a href="https://ytmp3.hari-acharya.com.np">ytmp3.hari-acharya.com.np</a></strong>
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Some speacility of this react application is:<br/>
+-Single Function Component responsible for handeling full rendering/fetching logic.<br/>
+-Download MP3 Version of any YouTube video with just the link.<br/>
+-Dark / Light mode.<br/>
+-See file size before downloading.<br/>
+-Deploy locally, in a server or pack as a electron application.<br/>
+-Select Quality of audio to download (Coming Soon, planned).<br/>
 
-## Expanding the ESLint configuration
+<italic>Please feel free to open a PR or Issue. It's personal project and is PR friendly.</italic>
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+<img src="public/image2.png">
 
-- Configure the top-level `parserOptions` property like this:
+To start the project locally, you don't need to do much. Just clone the repo and make necessary changes as you wish. One thing to notice is that the backend will require a seperate API key which you can get at <a href="https://rapidapi.com/420vijay47/api/youtube-mp3-downloader2/">RapidAPI</a>
 
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
-```
-
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+There are no other enviroment varibles to change. It's easy clone & deploy without headache.
