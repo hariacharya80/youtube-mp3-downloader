@@ -8,7 +8,8 @@ import toast, { Toaster } from "react-hot-toast";
 import requestVideoDownloadLink from "./helpers/fetchDownloader";
 
 function App() {
-  const [darkMode, setDarkMode] = useState(false);
+  const localTheme = Boolean(localStorage.getItem("_darkMode"));
+  const [darkMode, setDarkMode] = useState(localTheme);
   const [loading, setLoading] = useState(false);
   const [showCard, setShowCard] = useState(false);
   const [fileInfo, setFileInfo] = useState({
@@ -20,7 +21,9 @@ function App() {
   useEffect(() => {
     if (darkMode) {
       document.documentElement.classList.add("dark");
+      localStorage.setItem("_darkMode", "true");
     } else {
+      localStorage.setItem("_darkMode", "");
       document.documentElement.classList.remove("dark");
     }
   }, [darkMode]);
